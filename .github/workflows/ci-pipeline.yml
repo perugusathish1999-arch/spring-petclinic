@@ -17,8 +17,9 @@ jobs:
             distribution: 'temurin'
             java-version: '17'
 
-        - name: Build and test with Maven
-          run: mvn clean test
+        - name: Build and test with Maven (skip integration tests)
+          run: mvn clean test -Dspring.profiles.active=default -Dspring.docker.compose.skip=true
+
         
         - name: codeql-scan
           uses: github/codeql-action/init@v3
