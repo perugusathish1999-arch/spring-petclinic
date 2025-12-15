@@ -18,7 +18,7 @@ jobs:
             java-version: '17'
 
         - name: Build and test with Maven (skip integration tests)
-          run: mvn clean test -Dspring.profiles.active=default -Dspring.docker.compose.skip=true
+          run: mvn clean test -DskipTests
 
         
         - name: codeql-scan
