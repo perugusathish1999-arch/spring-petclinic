@@ -16,15 +16,13 @@ jobs:
           with:
             distribution: 'temurin'
             java-version: '17'
-
-        - name: Build and test with Maven (skip integration tests)
-          run: mvn clean test -DskipTests
-
-        
         - name: codeql-scan
           uses: github/codeql-action/init@v3
           with:
             languages: 'java'
+
+        - name: Build and test with Maven (skip integration tests)
+          run: mvn clean test -DskipTests
 
         - name: Perform CodeQL Analysis
           uses: github/codeql-action/analyze@v3
